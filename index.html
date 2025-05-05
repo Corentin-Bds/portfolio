@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Baudais Corentin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800">
+<header class="sticky top-0 bg-white shadow py-4 z-50">
+  <nav class="container mx-auto px-6 flex justify-between items-center">
+    <h1 class="text-xl font-bold">Baudais Corentin</h1>
+    <div class="space-x-4">
+      <a href="#about" class="hover:text-gray-500">À propos</a>
+      <a href="#skills" class="hover:text-gray-500">Compétences</a>
+      <a href="#projects" class="hover:text-gray-500">Projets</a>
+      <a href="#project" class="hover:text-gray-500">Projet pro</a>
+      <a href="#cv" class="hover:text-gray-500">CV</a>
+    </div>
+  </nav>
+</header>
+
+<section class="h-[70vh] flex items-center justify-center text-center bg-gradient-to-br from-gray-100 to-gray-300">
+<div>
+  <img src="/img/ChatGPT%20Image%2025%20avr.%202025%20à%2009_22_42.png" alt="Portrait" class="mx-auto rounded-full shadow-lg w-36 h-36 object-cover">
+  <h2 class="mt-4 text-3xl font-bold">Baudais Corentin</h2>
+</div>
+</section>
+
+<section id="about" class="py-20 fade-in">
+  <div class="container mx-auto px-6 text-center max-w-2xl">
+    <h3 class="text-2xl font-semibold mb-4">À propos de moi</h3>
+    <p>Je suis passionné par les systèmes et réseaux, actuellement en formation dans ce domaine. Curieux, rigoureux et toujours prêt à relever de nouveaux défis.</p>
+  </div>
+</section>
+
+<section id="skills" class="py-20 bg-white fade-in">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-semibold text-center mb-8">Compétences</h3>
+    <div class="flex justify-center flex-wrap gap-3">
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">HTML</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">CSS</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">Java</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">PHP</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">Symfony</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">Python</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">Django</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">Kotlin</span>
+      <span class="px-4 py-2 bg-gray-100 rounded-lg shadow">NextJS</span>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="py-20 fade-in">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-semibold text-center mb-8">Mes Projets</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white p-4 shadow rounded-lg">
+        <img src="https://via.placeholder.com/400x200" class="rounded mb-3">
+        <h4 class="font-bold">Nom du projet</h4>
+        <p class="text-sm">Description succincte, technos utilisées, lien GitHub.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project" class="py-20 bg-white fade-in">
+  <div class="container mx-auto px-6">
+    <h3 class="text-3xl font-bold text-center mb-12">Mon Projet Professionnel</h3>
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="bg-white rounded-xl border shadow-md hover:shadow-lg transition p-6 text-center">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">BTS SIO (2025)</h4>
+        <p class="text-gray-600">Formation en alternance, compétences en réseau, systèmes et programmation.</p>
+      </div>
+      <div class="bg-white rounded-xl border shadow-md hover:shadow-lg transition p-6 text-center">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">Préparation Armée de Terre (Juillet 2025)</h4>
+        <p class="text-gray-600">Préparation physique, dossier, motivation renforcée par mon expérience en Gendarmerie.</p>
+      </div>
+      <div class="bg-white rounded-xl border shadow-md hover:shadow-lg transition p-6 text-center">
+        <h4 class="text-xl font-semibold text-gray-800 mb-2">ENSOA (Octobre 2025)</h4>
+        <p class="text-gray-600">Début de la formation militaire dans l'ENSOA à Saint Maixent.</p>
+      </div>
+    </div>
+  </div>
+
+<section id="cv" class="py-20 fade-in text-center">
+  <h3 class="text-2xl font-semibold mb-4">Mon CV</h3>
+  <a href="cv.pdf" download class="inline-block bg-gray-700 text-white py-2 px-6 rounded shadow hover:bg-gray-800 transition">Télécharger le PDF</a>
+</section>
+
+<footer class="text-center py-6 text-gray-500 border-t bg-white">
+  © 2025 Baudais Corentin
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
