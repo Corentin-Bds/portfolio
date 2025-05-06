@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AzurImmo - NextJS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body>
+<body class="bg-gray-50 font-sans text-gray-800">
+<header class="sticky top-0 bg-white shadow py-4 z-50">
+  <nav class="container mx-auto px-6 flex justify-between items-center">
+    <a href="../index.html" class="text-xl font-bold">Baudais Corentin</a>
+    <a href="../index.html#projects" class="text-sm text-gray-600 hover:text-gray-800">← Retour aux projets</a>
+  </nav>
+</header>
+
+<main class="py-16 px-6 max-w-4xl mx-auto fade-in">
+  <h1 class="text-3xl font-bold mb-4">Google Workspace chez Legallais</h1>
+  <p class="text-gray-600 mb-6">Le projet intervient lors d'un besoin des collaborateurs de pouvoir avoir accès à des ressources/tutoriels/astuces concernant les outils de Google Workspace</p>
+
+  <img src="../img/projet-legallais.png" alt="Aperçu du projet" class="rounded-lg shadow mb-8 max-w-full mx-auto">
+
+  <section class="mb-12">
+    <h2 class="text-xl font-semibold mb-2">Fonctionnalités</h2>
+    <ul class="list-disc list-inside text-gray-700">
+      <li>Prendre des rendez-vous</li>
+      <li>Créer un ticket depuis le site</li>
+      <li>Tutoriel et astuces sur Google Workspace à dispositions</li>
+    </ul>
+  </section>
+
+  <section class="mb-12">
+    <h2 class="text-xl font-semibold mb-2">Technologies utilisées</h2>
+    <div class="flex flex-wrap gap-3">
+      <span class="bg-gray-100 px-3 py-1 rounded shadow text-sm">Google Sites</span>
+    </div>
+  </section>
+
+<footer class="text-center py-6 text-gray-500 border-t bg-white mt-12">
+  © 2025 Baudais Corentin
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
-</html>
